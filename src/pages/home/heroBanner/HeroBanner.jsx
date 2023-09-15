@@ -21,13 +21,17 @@ const HeroBanner = () => {
             url.backdrop +
             data?.results?.[Math.floor(Math.random() * 20)]?.backdrop_path;
         setBackground(bg);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [data]);
 
     const searchQueryHandler = (event) => {
         if (event.key === "Enter" && query.length > 0) {
             navigate(`/search/${query}`);
         }
+    };
+
+    const searchQueryHandler2 = (event) => {
+        navigate(`/search/${query}`)
     };
 
     return (
@@ -53,7 +57,7 @@ const HeroBanner = () => {
                             onChange={(e) => setQuery(e.target.value)}
                             onKeyUp={searchQueryHandler}
                         />
-                        <button>Search</button>
+                        <button onClick={searchQueryHandler2}>Search</button>
                     </div>
                 </div>
             </ContentWrapper>
